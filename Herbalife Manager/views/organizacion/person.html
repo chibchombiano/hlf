@@ -1,0 +1,54 @@
+<div data-role="view" id="single-activity" data-layout="default" class="activity-view" 
+     data-init="app.Person.init" data-show="app.Person.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            Datos persona
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+            <a class="nav-button nav-button-post" data-align="right" data-role="button" data-click="app.Person.update">Actualizar</a>
+        </div>
+    </div>
+
+    <div id="status-container" class="user-status-wrp cf" data-role="listview" data-style="inset">
+        <div class="user-avatar">
+            <img data-bind="attr:{src: User().PictureUrl}" alt="styles/images/avatar.png" />
+        </div>
+        <div class="activity-content">
+            <h4 class="person-name" data-bind='text: Nombre_Mostrar'></h4>
+            <span class="time-span" data-bind="text: CreatedAtFormatted"></span>
+            <span data-bind="text: Telefono_Movil" class="user-share-txt"></span>
+            <img  id="picture" class="picture" data-bind="attr:{src: PictureUrl()}" width="100%"/>
+            <div class="comments-wrp">
+                <ul id="comments-listview">                
+                </ul>
+            </div>
+        </div>
+        
+        <ul data-role="listview" data-style="inset">
+                	<li><span>Telefono movil</span></li>
+                    <li><input type="text" data-bind='value: Telefono_Movil' placeholder="Telefono movil"/></li>
+                
+            		<li><span>Telefono</span></li>
+                    <li><input type="text" data-bind='value: Telefono' placeholder="Telefono"/></li>
+            
+            		<li><span>Email</span></li>
+                    <li><input type="text" data-bind='value: Email' placeholder="Email"/></li>
+            
+            		<li><span>Peso</span></li>
+                    <li><input type="text" data-bind='value: Peso' placeholder="Peso"/></li>
+             </ul>
+        
+    </div>
+    
+    <div data-role="footer">
+        <a data-role="button" data-click="app.Person.remove" class="btn btn-delete">Eliminar</a>
+    </div>
+</div>
+
+<!-- Comments Template -->
+<script type="text/x-kendo-template" id="commentsTemplate">
+    <div class="comment-content">
+        <h2 class="person-name">${User()}</h2>
+        <span class="time-span">${CreatedAtFormatted()}</span>
+        <a class="user-share-txt">${Comment}</a>
+    </div>
+</script>

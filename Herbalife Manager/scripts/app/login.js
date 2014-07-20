@@ -53,6 +53,9 @@ app.Login = (function () {
         var show = function () {
             $loginUsername.val('');
             $loginPassword.val('');
+            
+            $loginUsername.val('futbolito152');
+            $loginPassword.val('iguazo26');
         };
 
         // Authenticate to use Backend Services as a particular user
@@ -73,7 +76,7 @@ app.Login = (function () {
             })
             .then(function () {
 
-                app.mobileApp.navigate('views/activitiesView.html');
+                app.mobileApp.navigate('views/organizacion/listado.html');
             })
             .then(null,
                   function (err) {
