@@ -73,37 +73,28 @@ app.Person = (function () {
 
         function onSuccess(imageURI) {
             
-        	//var image = document.getElementById('myImage');
-    		//image.src = imageURI;
-        
-            //var fotos = app.fotosDatasource.fotos;
-            //var foto = fotos.add();
-            
-            /*
-            foto.Foto = "data:image/jpeg;base64," + imageData;
-            
-            fotos.one('sync', function (e) {
-            	Person.idFoto = foto.id;
-                updatePerson();
-            });
-            
-            fotos.sync();
-            
-            $PersonPicture.attr("src", "data:image/jpeg;base64," + imageData);
-            */
-            
             var el = app.everlive;
             var imageURI = imageURI;
             // the retrieved URI of the file, e.g. using navigator.camera.getPicture()
             var uploadUrl = el.Files.getUploadUrl();
             var options = new FileUploadOptions();
             options.fileKey = "file";
-            options.fileName = Person.Id.toString();
+            options.fileName = Person.Id.toString() + '.png';
             options.mimeType="image/png";
             options.headers = el.buildAuthHeader();
             var ft = new FileTransfer();
             ft.upload(imageURI, uploadUrl,  function (r) {
-                alert('success') },  function(error){
+                alert(JSON.stringify(r));
+                alert(JSON.stringify(r.Storage));
+                alert(JSON.stringify(r.Storage.Uri)); 
+                var pathImage =  r.Storage.uri;
+                $PersonPicture.attr("src", pathImage);
+                
+                Person.idFoto = foto.id;
+                updatePerson();
+                
+            },
+            function(error){
                 alert("An error has occurred: Code = " + error.code);
             }, options);
         }
