@@ -6,6 +6,7 @@ app.Person = (function () {
     
     var $commentsContainer,
         listScroller;
+    	
     
     var PersonViewModel = (function () {
         
@@ -15,7 +16,7 @@ app.Person = (function () {
         
         var init = function () {
             $commentsContainer = $('#comments-listview');
-            $PersonPicture = $('#picture');
+            $PersonPicture = $('#picturePerson');
         };
         
         var show = function (e) {
@@ -65,6 +66,54 @@ app.Person = (function () {
             
         };
         
+        var foto = function(){
+            	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, 
+    			destinationType: Camera.DestinationType.FILE_URI }); 
+        }   
+
+        function onSuccess(imageURI) {
+            
+        	//var image = document.getElementById('myImage');
+    		//image.src = imageURI;
+        
+            //var fotos = app.fotosDatasource.fotos;
+            //var foto = fotos.add();
+            
+            /*
+            foto.Foto = "data:image/jpeg;base64," + imageData;
+            
+            fotos.one('sync', function (e) {
+            	Person.idFoto = foto.id;
+                updatePerson();
+            });
+            
+            fotos.sync();
+            
+            $PersonPicture.attr("src", "data:image/jpeg;base64," + imageData);
+            */
+            
+            var el = app.everlive;
+            var imageURI = imageURI;
+            // the retrieved URI of the file, e.g. using navigator.camera.getPicture()
+            var uploadUrl = el.Files.getUploadUrl();
+            var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = Person.Id.toString();
+            options.mimeType="image/png";
+            options.headers = el.buildAuthHeader();
+            var ft = new FileTransfer();
+            ft.upload(imageURI, uploadUrl,  function (r) {
+                alert('success') },  function(error){
+                alert("An error has occurred: Code = " + error.code);
+            }, options);
+        }
+    
+        
+        
+        function onFail(message) {
+            alert('Failed because: ' + message);
+        }
+        
         var editPerson = function(){
             app.mobileApp.navigate('views/organizacion/editPerson.html?uid=' + PersonUid);
         }
@@ -74,7 +123,8 @@ app.Person = (function () {
             show: show,
             remove: removePerson,
             update : updatePerson,
-            edit	 : editPerson,
+            edit   : editPerson,
+            foto: foto,
             activity: function () {
                 return Person;
             },

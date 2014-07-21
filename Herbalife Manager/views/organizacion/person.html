@@ -10,7 +10,7 @@
 
     <div id="status-container" class="user-status-wrp cf" data-role="listview" data-style="inset">
         <div class="user-avatar">
-            <img data-bind="attr:{src: User().PictureUrl}" alt="styles/images/avatar.png" />
+            <img id="picturePerson" alt="styles/images/avatar.png" />
         </div>
         <div class="activity-content">
             <h4 class="person-name" data-bind='text: Nombre_Mostrar'></h4>
@@ -36,6 +36,10 @@
                         
                         <span class="oauth-item" data-role="touch">
                             <a data-role="button" data-click="app.Person.remove">eliminar</a>
+                        </span>
+                        
+                        <span class="oauth-item" data-role="touch">
+                            <a data-role="button" data-click="app.Person.foto">foto</a>
                         </span>
                         
                 	</li>
