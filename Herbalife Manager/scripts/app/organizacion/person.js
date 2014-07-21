@@ -40,7 +40,7 @@ app.Person = (function () {
             
             app.showConfirm(
                 appSettings.messages.removeActivityConfirm,
-                'Delete Activity',
+                'Eliminar contacto',
                 function (confirmed) {
                     if (confirmed === true || confirmed === 1) {
                         

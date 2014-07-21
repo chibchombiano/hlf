@@ -614,3 +614,16 @@
         background-size: 23px 23px;
     }
 }
+
+#menuIzquierdo .km-group-title {
+    display: block;
+    font-weight: bold;
+    padding: .2em 0;
+    text-indent: .8em;
+    color: gray;
+}
+
+#menuIzquierdo .km-list, .km-listview {
+	color: gray;
+}
+

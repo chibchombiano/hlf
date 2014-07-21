@@ -21,9 +21,11 @@
         <script src="scripts/app/add-comment.js" type="text/javascript"></script>
         
         <!-- Organizacion -->
+        <script src="scripts/app/organizacion/datasource.js" type="text/javascript"></script>
         <script src="scripts/app/organizacion/listado.js" type="text/javascript"></script>
         <script src="scripts/app/organizacion/person.js" type="text/javascript"></script>
         <script src="scripts/app/organizacion/addPerson.js" type="text/javascript"></script>
+        
         
         <!-- Extension -->
         <script src="scripts/app/Extensions/Kendo.js" type="text/javascript"></script>
@@ -35,9 +37,30 @@
     <body id="friendsApp">
         <div data-role="layout" data-id="default">
             <!--View content will render here-->
+            
         </div>
+        
+        <div data-role="layout" data-id="login">
+            <!--View content will render here-->
+        </div>
+        
+       <div id="menuIzquierdo" data-role="drawer" data-views='["listado-organizacion", "adicionar-persona"]'>
+            <ul data-role="listview" class="welcome-scrn form-view" data-type="group">
+                <li>Mailbox
+                    <ul>
+                        <li data-icon="inbox"><a href="#drawer-home" data-transition="none">Inbox</a></li>                
+                    </ul>
+                </li>
+                <li>Tasks
+                    <ul>
+                        <li>To Do</li>
+                    </ul>
+                </li>                
+    		</ul>
+       </div>
+        
         <!--WELCOME VIEW -->
-        <div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
+        <div data-role="view" id="welcome" data-layout="login" class="welcome-scrn form-view" data-model="app.Login" data-init="app.Login.init" data-show="app.Login.show">
             <div data-role="header"></div>
             <h1 class="app-logo hide-text center-block">Herbalife <small>HLF</small></h1>
             <h2 class="app-name center-text">Herbalife <small>contact manager</small></h2>
@@ -53,6 +76,8 @@
                         <a data-role="button" class="btn btn-login">Login</a>
                     </span>
                 </li>
+                
+                <!--
                 <li class="oauth cf">
                     <span id="loginWithFacebook" class="oauth-item" data-role="touch" data-bind="events: { tap: loginWithFacebook }">
                         <a data-role="button" class="btn btn-login-fb">Ingresar con facebook</a>
@@ -67,6 +92,8 @@
                         <a data-role="button" class="btn btn-login-adsf">Login with ADSF</a>
                     </span>
                 </li>
+                -->
+
                 <li class="signup">
                     <a data-role="button" href="views/signupView.html" class="btn-signup">Crear una cuenta?</a>
                 </li>

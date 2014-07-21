@@ -71,6 +71,7 @@ app.Signup = (function () {
                 Email: '',                
                 Friends: [],
                 LineaAscendente : '',
+                Tabulador : '',
                 BirthDate: new Date()
             });
             kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);

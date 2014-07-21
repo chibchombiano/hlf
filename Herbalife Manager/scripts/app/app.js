@@ -144,6 +144,10 @@ var app = (function (win) {
     var getYear = (function () {
         return new Date().getFullYear();
     }());
+    
+    var isOnline= function () {
+    	return navigator.connection.type != Connection.NONE;
+	}
 
     return {
         showAlert: showAlert,
@@ -153,6 +157,7 @@ var app = (function (win) {
         mobileApp: mobileApp,
         helper: AppHelper,
         everlive: el,
-        getYear: getYear
+        getYear: getYear,
+        isOnline : isOnline,
     };
 }(window));
