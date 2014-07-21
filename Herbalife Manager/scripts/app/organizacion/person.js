@@ -65,11 +65,16 @@ app.Person = (function () {
             
         };
         
+        var editPerson = function(){
+            app.mobileApp.navigate('views/organizacion/editPerson.html?uid=' + PersonUid);
+        }
+        
         return {
             init: init,
             show: show,
             remove: removePerson,
             update : updatePerson,
+            edit	 : editPerson,
             activity: function () {
                 return Person;
             },

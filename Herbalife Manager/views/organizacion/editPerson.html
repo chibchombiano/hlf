@@ -3,8 +3,7 @@
     <div data-role="header">
         <div data-role="navbar">
             Datos persona
-            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
-            <a class="nav-button nav-button-post" data-align="right" data-role="button" data-click="app.Person.edit">Editar</a>
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Volver</a>            
         </div>
     </div>
 
@@ -22,25 +21,22 @@
                 </ul>
             </div>
         </div>
-        
-        <ul data-role="listview" data-style="inset">
-                	<li><span>Telefono movil</span></li>
-                    <li><span data-bind='text: Telefono_Movil' placeholder="Telefono movil"/></li>
-                
-            		<li><span>Telefono</span></li>
-                    <li><span data-bind='text: Telefono' placeholder="Telefono"/></li>
-            
-            		<li><span>Email</span></li>
-                    <li><span data-bind='text: Email' placeholder="Email"/></li>
-            
-            		<li><span>Peso</span></li>
-                    <li><span data-bind='text: Peso' placeholder="Peso"/></li>
-             </ul>
-        
     </div>
     
+    <ul data-role="listview" data-style="inset">
+                    <li><input type="text" data-bind='value: Telefono_Movil' placeholder="Telefono movil"/></li>
+                    <li><input type="text" data-bind='value: Telefono' placeholder="Telefono"/></li>
+                    <li><input type="text" data-bind='value: Email' placeholder="Email"/></li>
+                    <li><input type="text" data-bind='value: Peso' placeholder="Peso"/></li>
+             </ul><ul data-role="listview" data-style="inset">
+                    <li><input type="text" data-bind='value: Telefono_Movil' placeholder="Telefono movil"/></li>
+                    <li><input type="text" data-bind='value: Telefono' placeholder="Telefono"/></li>
+                    <li><input type="text" data-bind='value: Email' placeholder="Email"/></li>
+                    <li><input type="text" data-bind='value: Peso' placeholder="Peso"/></li>
+             </ul>
+    
     <div data-role="footer">
-        <a data-role="button" data-click="app.Person.remove" class="btn btn-delete">Eliminar</a>
+        <a data-role="button" data-click="app.Person.update" class="btn btn-delete">Actualizar</a>
     </div>
 </div>
 
