@@ -50,14 +50,17 @@ app.organizacions = (function () {
                 Peso: {
                     field: 'Peso',
                     defaultValue: null
+                },
+                Fecha_Nacimiento: {
+                    field: 'Fecha_Nacimiento',
+                    defaultValue: new Date()
                 }
+
             },
             CreatedAtFormatted: function () {
-
                 return app.helper.formatDate(this.get('CreatedAt'));
             },
             PictureUrl: function () {
-
                 return app.helper.resolvePictureUrl(this.get('Picture'));
             },
             User: function () {

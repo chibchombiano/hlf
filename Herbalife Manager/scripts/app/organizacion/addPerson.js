@@ -14,6 +14,7 @@ app.AddPerson = (function () {
         var $telefonoMovil;
         var $email;
         var $peso;
+        var $personFechaNacimiento;
         var validator;
         
         var init = function () {            
@@ -24,6 +25,7 @@ app.AddPerson = (function () {
             $telefonoMovil = $('#personTelefonoMovil');
             $email = $('#personEmail');
             $peso = $('#personPeso');
+            $personFechaNacimiento = $('#personFechaNacimiento');
         };
         
         var show = function () {            
@@ -47,6 +49,7 @@ app.AddPerson = (function () {
                 Person.UserId = app.Users.currentUser.get('data').Id;
                 Person.Email = $email.val();
                 Person.Peso = $peso.val();
+                Person.Fecha_Nacimiento = $personFechaNacimiento.val();
                 
                 personas.one('sync', function () {
                     app.mobileApp.navigate('#:back');
