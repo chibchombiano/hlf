@@ -12,6 +12,7 @@ app.Signup = (function () {
         var $signUpForm;
         var $formFields;
         var $signupBtnWrp;
+        var $signupLineaAscendente;
         var validator;
 
         // Register user after required fields (username and password) are validated in Backend Services
@@ -46,6 +47,9 @@ app.Signup = (function () {
             $signUpForm = $('#signUp');
             $formFields = $signUpForm.find('input, textarea, select');
             $signupBtnWrp = $('#signupBtnWrp');
+            $signupLineaAscendente = $('#signupLineaAscendente');
+            
+            
             validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
 
             $formFields.on('keyup keypress blur change input', function () {
@@ -64,10 +68,9 @@ app.Signup = (function () {
                 Username: '',
                 Password: '',
                 DisplayName: '',
-                Email: '',
-                Gender: '0',
-                About: '',
+                Email: '',                
                 Friends: [],
+                LineaAscendente : '',
                 BirthDate: new Date()
             });
             kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);
