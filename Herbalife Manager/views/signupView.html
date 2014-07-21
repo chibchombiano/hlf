@@ -8,33 +8,26 @@
     <form id="signUp">
         <ul id="signup-form" data-role="listview" data-style="inset">
             <li>
-                <input type="text" id="signupName" data-bind="value: DisplayName" placeholder="Name" required/>
+                <input type="text" id="signupName" data-bind="value: DisplayName" placeholder="Nombre" required/>
             </li>
             <li>
                 <input type="email" id="signupEmail" data-bind="value: Email" placeholder="Email"/>
             </li>
             <li>
-                <input type="text" id="signupUsername" data-bind="value: Username" placeholder="Username" required/>
+                <input type="text" id="signupUsername" data-bind="value: Username" placeholder="Nombre usuario" required/>
             </li>
             <li>
-                <input type="password" id="signupPassword" data-bind="value: Password" placeholder="Password" required/>
+                <input type="password" id="signupPassword" data-bind="value: Password" placeholder="Contraseña" required/>
             </li>
             <li>
                 <input type="date" id="signupBirthDatePicker" data-bind="value: BirthDate"/>
             </li>
-            <li class="select-wrp">
-                <select id="signupGenderPicker" data-bind="value: Gender" onchange="app.Signup.onSelectChange(this)">
-                    <option value="0" selected>Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                </select>
-            </li>
-            <li class="txtarea-wrp">
-                <textarea id="signupInfo" data-bind="value: About" placeholder="About">User account created from the hybrid app.</textarea>
+            <li>
+                <input type="text" id="signupLineaAscendente" data-bind="value: LineaAscendente" placeholder="Linia Ascendente" required/>
             </li>
         </ul>
     </form>
     <div id="signupBtnWrp" class="signup-btn-wrp disabled">
-        <a class="btn btn-signup" data-role="button" data-bind="click: signup">Register</a>
+        <a class="btn btn-signup" data-role="button" data-bind="click: signup">Registrarse</a>
     </div>
 </div>
