@@ -83,16 +83,15 @@ app.Person = (function () {
             options.mimeType="image/png";
             options.headers = el.buildAuthHeader();
             var ft = new FileTransfer();
-            ft.upload(imageURI, uploadUrl,  function (r) {
-                alert(JSON.stringify(r));
-                alert(JSON.stringify(r.Storage));
-                alert(JSON.stringify(r.Storage.Uri)); 
-                var pathImage =  r.Storage.uri;
-                $PersonPicture.attr("src", pathImage);
-                
-                Person.idFoto = foto.id;
-                updatePerson();
-                
+            ft.upload(imageURI, uploadUrl,  function (data) { 
+                try{
+                	var response = JSON.parse(data.response);
+                    var result = JSON.stringify(response.Result).split(",");                    
+                    alert(Uri.split(":")[1]);
+                }
+                catch(ex){
+                    alert(ex);
+                }
             },
             function(error){
                 alert("An error has occurred: Code = " + error.code);
