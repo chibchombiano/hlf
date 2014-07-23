@@ -11,8 +11,12 @@ app.Person = (function () {
     var PersonViewModel = (function () {
         
         var PersonUid,
+            PersonId,
             Person,
+            dataUpload,
+            imageData,
             $PersonPicture;
+        
         
         var init = function () {
             $commentsContainer = $('#comments-listview');
@@ -25,6 +29,7 @@ app.Person = (function () {
             listScroller.reset();
             
             PersonUid = e.view.params.uid;
+            PersonId = e.view.params.id;
             // Get current Person (based on item uid) from Activities model
             Person = app.organizacions.organizacions.getByUid(PersonUid);
             Person['Nombre_Mostrar'] = Person.Nombres + ' ' + Person.Apellidos;
@@ -44,7 +49,6 @@ app.Person = (function () {
                 'Eliminar contacto',
                 function (confirmed) {
                     if (confirmed === true || confirmed === 1) {
-                        
                         personas.remove(Person);
                         personas.one('sync', function () {
                             app.mobileApp.navigate('#:back');
@@ -72,34 +76,50 @@ app.Person = (function () {
              });        
         }   
 
-        function onSuccess(imageData) {
-            
+        function onSuccess(imageDataResult) {
+            imageData = imageDataResult;
             var el = app.everlive;
             
-            var file = {
-                "Filename": "everlive.png",
+            var query = new Everlive.Query();
+            		query.where().eq('Filename', PersonId + ".png");
+                    el.Files.destroy(query,imageDeleted,
+                        function(error){
+                            alert(JSON.stringify(error));
+              });                
+                
+        }
+        
+        function imageDeleted(data){
+        	var el = app.everlive;
+            
+        	var file = {
+                "Filename": PersonId + ".png",
                 "ContentType": "image/png",
                 "base64": imageData
             };
+            
             el.Files.create(file,
-                function (data) {
-                    var result = data.result;
-                    var urlImagen = result.Uri;
-                    var idImagen = result.Id;
-                    
-                    var personas = app.organizacions.organizacions;
-                    personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture', updateValue: idImagen });
-                    personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture_Url', updateValue: urlImagen});
-                    updatePerson();
-
-                },
-                function (error) {
-                    alert(JSON.stringify(error));
-                });
+            function (data) {
+               uploadPhoto(data);
+            },
+            function (error) {
+                alert(JSON.stringify(error));
+            });
         }
         
         function onFail(message) {
             alert('Failed because: ' + message);
+        }
+        
+        function uploadPhoto(data){
+            var result = data.result;
+            var urlImagen = result.Uri;
+            var idImagen = result.Id;
+            
+            var personas = app.organizacions.organizacions;
+            personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture', updateValue: idImagen });
+            personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture_Url', updateValue: urlImagen});
+            updatePerson();
         }
         
         var editPerson = function(){

@@ -10,8 +10,7 @@ app.organizacions = (function () {
 
         // Navigate to organizacionView When some organizacion is selected
         var organizacionSelected = function (e) {
-
-            app.mobileApp.navigate('views/organizacion/person.html?uid=' + e.data.uid);
+            app.mobileApp.navigate('views/organizacion/person.html?uid=' + e.data.uid+ '&id=' + e.data.id);
         };
 
         // Navigate to app home
