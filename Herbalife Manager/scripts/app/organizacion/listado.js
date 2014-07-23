@@ -15,7 +15,6 @@ app.organizacions = (function () {
 
         // Navigate to app home
         var navigateHome = function () {
-
             app.mobileApp.navigate('#welcome');
         };
 

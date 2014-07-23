@@ -37,6 +37,9 @@ app.Person = (function () {
             $PersonPicture[0].style.display = Person.Picture ? 'block' : 'none';
             
             kendo.bind(e.view.element, Person, kendo.mobile.ui);
+            
+            appConsole.log('test');
+            app.PushRegistrarTest.enablePushNotifications();
         };
         
         var removePerson = function () {
