@@ -48,7 +48,7 @@ app.personasDatasource = (function () {
                 },
                 Picture_Url: {
                     field: 'Picture_Url',
-                    defaultValue: null
+                    defaultValue: 'styles/images/avatar.png'
                 },
                 Fecha_Nacimiento: {
                     field: 'Fecha_Nacimiento',
