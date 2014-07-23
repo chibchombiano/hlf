@@ -38,8 +38,10 @@ app.Person = (function () {
             
             kendo.bind(e.view.element, Person, kendo.mobile.ui);
             
+            /* Codigo para enviar push
             appConsole.log('test');
             app.PushRegistrarTest.enablePushNotifications();
+            */
         };
         
         var removePerson = function () {

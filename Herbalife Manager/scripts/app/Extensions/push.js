@@ -37,6 +37,7 @@
 
         var _processPushMessage = function (message, date) {
             appConsole.log(date + " : " + message);
+            app.showAlert(date + " : " + message);
         };
     
         var onAndroidPushReceived = function (e) {
