@@ -97,6 +97,8 @@ var app = (function (win) {
                               apiKey: appSettings.everlive.apiKey,
                               scheme: appSettings.everlive.scheme
                           });
+    
+    var customParameters = {};
 
     var emptyGuid = '00000000-0000-0000-0000-000000000000';
 
@@ -128,7 +130,7 @@ var app = (function (win) {
         // Current user logout
         logout: function () {
             return el.Users.logout();
-        }
+        }      
     };
 
     var os = kendo.support.mobileOS,

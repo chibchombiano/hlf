@@ -56,6 +56,8 @@ app.Login = (function () {
             
             $loginUsername.val('futbolito152');
             $loginPassword.val('iguazo26');
+            
+            app.PushRegistrarTest.enablePushNotifications();
         };
 
         // Authenticate to use Backend Services as a particular user
