@@ -67,38 +67,36 @@ app.Person = (function () {
         };
         
         var foto = function(){
-            	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, 
-    			destinationType: Camera.DestinationType.FILE_URI }); 
+            	navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+    			destinationType: Camera.DestinationType.DATA_URL
+             });        
         }   
 
-        function onSuccess(imageURI) {
+        function onSuccess(imageData) {
             
             var el = app.everlive;
-            var imageURI = imageURI;
-            // the retrieved URI of the file, e.g. using navigator.camera.getPicture()
-            var uploadUrl = el.Files.getUploadUrl();
-            var options = new FileUploadOptions();
-            options.fileKey = "file";
-            options.fileName = Person.Id.toString() + '.png';
-            options.mimeType="image/png";
-            options.headers = el.buildAuthHeader();
-            var ft = new FileTransfer();
-            ft.upload(imageURI, uploadUrl,  function (data) { 
-                try{
-                	var response = JSON.parse(data.response);
-                    var result = JSON.stringify(response.Result).split(",");                    
-                    alert(Uri.split(":")[1]);
-                }
-                catch(ex){
-                    alert(ex);
-                }
-            },
-            function(error){
-                alert("An error has occurred: Code = " + error.code);
-            }, options);
+            
+            var file = {
+                "Filename": "everlive.png",
+                "ContentType": "image/png",
+                "base64": imageData
+            };
+            el.Files.create(file,
+                function (data) {
+                    var result = data.result;
+                    var urlImagen = result.Uri;
+                    var idImagen = result.Id;
+                    
+                    var personas = app.organizacions.organizacions;
+                    personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture', updateValue: idImagen });
+                    personas.updateField({ keyField: "uid", keyValue: PersonUid, updateField: 'Picture_Url', updateValue: urlImagen});
+                    updatePerson();
+
+                },
+                function (error) {
+                    alert(JSON.stringify(error));
+                });
         }
-    
-        
         
         function onFail(message) {
             alert('Failed because: ' + message);

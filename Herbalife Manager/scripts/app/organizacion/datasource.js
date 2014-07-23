@@ -46,8 +46,8 @@ app.personasDatasource = (function () {
                     field: 'Peso',
                     defaultValue: null
                 },
-                IdFoto: {
-                    field: 'idFoto',
+                Picture_Url: {
+                    field: 'Picture_Url',
                     defaultValue: null
                 },
                 Fecha_Nacimiento: {

@@ -1,10 +1,13 @@
+
+
 var dataSourceExtensions = {
             updateField: function (e) {
                 var ds = this;
                 $.each(ds._data, function (idx, record) {
                     if (record[e.keyField] == e.keyValue) {
+                        ds._data[idx].dirty = true;
                         ds._data[idx][e.updateField] = e.updateValue;
-                        //ds.read(ds._data);
+                        ds.read(ds._data);
                         return false;
                     }
                 });
