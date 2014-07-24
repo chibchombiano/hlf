@@ -1,0 +1,14 @@
+<div data-role="view" id="listado-organizacion-envio-sms-textoEnviar" data-layout="default" data-transition="overlay:down" class="add-comment-view" data-model="app.organizacions">
+    <div data-role="header">
+        <div data-role="navbar">
+            Comment
+            <a class="nav-button nav-button-cancel" data-align="left" data-role="backbutton">Cancel</a>
+            <a class="nav-button nav-button-post" data-align="right" data-role="button" data-click="app.organizacions.enviarSms">Enviar</a>
+        </div>
+    </div>
+    <div id="enterComment" class="share-form-wrp" data-role="listview" data-style="inset">
+        <div class="user-share">
+            <textarea id="multipleTextoSms" placeholder="Que deseas enviar" required validationMessage="Comment text is required!"></textarea>
+        </div>
+    </div>
+</div>

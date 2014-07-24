@@ -29,15 +29,14 @@ app.organizacions = (function () {
         
         var enviarSms = function(){
             
+            var mensaje = $('#multipleTextoSms').val();
             var listadoMensajes = app.personasDatasource.personas._data;
-            //var arrayEnvioMensajes = new Array();
             
             for(var i in listadoMensajes){
                 try{
-                    if(listadoMensajes[i].EnviarSms === true && listadoMensajes[i].Telefono_Movil !== ""){
-                        //arrayEnvioMensajes.push({"Numero": listadoMensajes[i].Telefono_Movil});
-                        //enviarSms( listadoMensajes[i].Telefono_Movil.toString(),'Mensaje de prueba');
-                        enviarSmsRequest('+573176578785','Mensaje de prueba');
+                    if(listadoMensajes[i].EnviarSms === true && listadoMensajes[i].Telefono_Movil !== ""){                        
+                        
+                        enviarSmsRequest("+57" + listadoMensajes[i].Telefono_Movil.toString(), mensaje);
                     }
                 }
                 catch(ex){}
@@ -46,11 +45,7 @@ app.organizacions = (function () {
         };
         
         function enviarSmsRequest(numero, mensaje){
-            var data = [{                          
-                          "to": "+573176578785",
-                          "from": "+15706648744",
-                          "body": "Test"                         
-                    }]
+           
             
             // No se puede xq el jsonp no deja mandar custom header
             
@@ -64,11 +59,9 @@ app.organizacions = (function () {
             */
             
             var formData = new FormData();
-            formData.append("To", "+573176578785");
+            formData.append("To", numero);
             formData.append("From", "+15706648744");
-            formData.append("Body", "hola douglas");            
-            
-            //var params = JSON.stringify({ from: "+573176578785", to: "+15706648744", body : "test" });
+            formData.append("Body", mensaje);            
             
             var request = app.xtmlRequest("POST", "https://api.twilio.com/2010-04-01/Accounts/ACf92d336dcb45ffad062c0becacdd7359/Messages");
             if (request){
@@ -80,29 +73,6 @@ app.organizacions = (function () {
             
         }
         
-        function createCORSRequest(method, url){
-            var xhr = new XMLHttpRequest();
-            if ("withCredentials" in xhr){
-                xhr.open(method, url, true);
-            } else if (typeof XDomainRequest != "undefined"){
-                xhr = new XDomainRequest();
-                xhr.open(method, url);
-            } else {
-                xhr = null;
-            }
-            try{
-            	xhr.setRequestHeader('Authorization', 'Basic QUNmOTJkMzM2ZGNiNDVmZmFkMDYyYzBiZWNhY2RkNzM1OToyYTVkMGNkN2JiNzlmOWE2NDY1NTg4YjU0MTkzYmZlMw=='); 	
-                //xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
-				//xhr.setRequestHeader("Content-length", params.length);
-            }
-            catch(ex){}
-            return xhr;
-        }
-
-
-
-
-
         return {
             organizacions: app.personasDatasource.personas,
             organizacionSelected: organizacionSelected,
