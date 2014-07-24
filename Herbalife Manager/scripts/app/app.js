@@ -150,6 +150,23 @@ var app = (function (win) {
     var isOnline= function () {
     	return navigator.connection.type != Connection.NONE;
 	}
+    
+    var xtmlRequest = function (method, url){
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr){
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined"){
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                xhr = null;
+            }
+            try{
+            	xhr.setRequestHeader('Authorization', 'Basic QUNmOTJkMzM2ZGNiNDVmZmFkMDYyYzBiZWNhY2RkNzM1OToyYTVkMGNkN2JiNzlmOWE2NDY1NTg4YjU0MTkzYmZlMw==');
+            }
+            catch(ex){}
+            return xhr;
+        }
 
     return {
         showAlert: showAlert,
@@ -161,5 +178,6 @@ var app = (function (win) {
         everlive: el,
         getYear: getYear,
         isOnline : isOnline,
+        xtmlRequest : xtmlRequest
     };
 }(window));

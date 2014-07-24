@@ -51,16 +51,12 @@
             <!--View content will render here-->
         </div>
         
-       <div id="menuIzquierdo" data-role="drawer" data-views='["listado-organizacion", "adicionar-persona"]'>
+       <div id="menuIzquierdo" data-role="drawer" data-views='["listado-organizacion", "adicionar-persona", "listado-organizacion-envio-sms"]'>
             <ul data-role="listview" class="welcome-scrn form-view" data-type="group">
-                <li>Mailbox
+                <li>Mensajes
                     <ul>
-                        <li data-icon="inbox"><a href="#drawer-home" data-transition="none">Inbox</a></li>                
-                    </ul>
-                </li>
-                <li>Tasks
-                    <ul>
-                        <li>To Do</li>
+                        <li data-icon="inbox"><a href="views/organizacion/listadoSms.html" data-transition="none">Sms</a></li>
+                        <li data-icon="inbox"><a href="views/organizacion/listado.html" data-transition="none">Organizacion</a></li>
                     </ul>
                 </li>                
     		</ul>

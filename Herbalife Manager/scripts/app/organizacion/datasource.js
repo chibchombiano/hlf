@@ -53,8 +53,11 @@ app.personasDatasource = (function () {
                 Fecha_Nacimiento: {
                     field: 'Fecha_Nacimiento',
                     defaultValue: new Date()
+                },
+                EnviarSms: {
+                    field: 'EnviarSms',
+                    defaultValue: true
                 }
-
             },
             CreatedAtFormatted: function () {
                 return app.helper.formatDate(this.get('CreatedAt'));
