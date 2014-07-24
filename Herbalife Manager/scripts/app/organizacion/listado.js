@@ -66,7 +66,7 @@ app.organizacions = (function () {
             var request = app.xtmlRequest("POST", "https://api.twilio.com/2010-04-01/Accounts/ACf92d336dcb45ffad062c0becacdd7359/Messages");
             if (request){
                 request.onload = function(){
-                    alert(request.response);
+                    //alert(request.response);                    
                 };
                 request.send(formData);
             }
