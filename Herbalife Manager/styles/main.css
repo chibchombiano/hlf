@@ -399,6 +399,8 @@
     background-color: #fff;
 }
 
+
+
 #friendsApp .activities-view .km-list > li,
 #friendsApp .activity-view .km-list > li {
     overflow: visible;
@@ -626,4 +628,7 @@
 #menuIzquierdo .km-list, .km-listview {
 	color: gray;
 }
+
+
+
 

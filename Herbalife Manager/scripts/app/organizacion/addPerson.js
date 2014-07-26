@@ -59,11 +59,16 @@ app.AddPerson = (function () {
             }
         };
         
+        var seleccionarFecha = function(){
+            app.mobileApp.navigate('views/common/calendar.html');
+        }
+        
         return {
             init: init,
             show: show,
             me: app.Users.currentUser,
-            savePerson: savePerson
+            savePerson: savePerson,
+            seleccionarFecha : seleccionarFecha
         };
         
     }());
