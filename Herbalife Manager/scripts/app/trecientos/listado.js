@@ -6,6 +6,15 @@ app.trecientos = (function () {
     
     // organizacions view model
     var trecientosViewModel = (function () {
+        
+        var show = function () {
+            app.trecientosDatasource.trecientos.filter( { field: "idPerson", operator: "eq", value: appSettings.person.id });
+          	app.trecientosDatasource.trecientos.read();
+        };
+        
+        var hide = function(){
+            
+        }
 
         // Navigate to organizacionView When some organizacion is selected
         var trecientosSelected = function (e) {
@@ -19,6 +28,8 @@ app.trecientos = (function () {
         
         
         return {
+            hide : hide,
+            show : show,
             trecientos: app.trecientosDatasource.trecientos,
             trecientosSelected: trecientosSelected
         };

@@ -40,7 +40,8 @@ app.Person = (function () {
             
             $PersonPicture[0].style.display = Person.Picture ? 'block' : 'none';
             
-            kendo.bind(e.view.element, Person, kendo.mobile.ui);
+            kendo.bind(e.view.element, Person, kendo.mobile.ui);            
+            appSettings.person.id = PersonId;
             
             /* Codigo para enviar push
             appConsole.log('test');
