@@ -86,7 +86,10 @@ app.personasDatasource = (function () {
                 var userId = this.get('UserId');
 
                 return currentUserId === userId;
-            }
+            },
+            seleccionarFecha :  function(){
+           		 app.mobileApp.navigate('views/common/calendar.html');
+        	}
         };
 
         // organizacions data source. The Backend Services dialect of the Kendo UI DataSource component

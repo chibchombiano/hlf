@@ -28,7 +28,9 @@
         <li><input type="text" data-bind='value: Telefono' placeholder="Telefono"/></li>
         <li><input type="text" data-bind='value: Email' placeholder="Email"/></li>
         <li><input type="text" data-bind='value: Peso' placeholder="Peso"/></li>
-        <li><input type="text" data-bind='value: Fecha_Nacimiento' placeholder="Fecha de nacimiento"/></li>
+        <li class="noWp8Date"><input type="text" data-bind='value: Fecha_Nacimiento' placeholder="Fecha de nacimiento"/></li>
+        <li class="wp8Date"><a data-align="right" data-role="button" data-bind="click: seleccionarFecha">Fecha nacimiento</a></li>
+        <li class="wp8Date"><input type="text" id="editPersonFechaNacimientoText" data-bind="value: Fecha_Nacimiento"/></li>
     </ul>
     
     <div data-role="footer">

@@ -23,6 +23,8 @@ app.Person = (function () {
             $commentsContainer = $('#comments-listview');
             $PersonPicture = $('#picturePerson');
             devicePlatform = device.platform;
+            
+            app.hideNotSupportedElements();
         };
         
         var show = function (e) {
@@ -44,6 +46,15 @@ app.Person = (function () {
             appConsole.log('test');
             app.PushRegistrarTest.enablePushNotifications();
             */
+            
+            if(app.commonCalendar !== undefined && app.commonCalendar.fechaSelecionada() !== undefined){
+                try{
+                    
+                    $('#editPersonFechaNacimientoText').val(app.commonCalendar.fechaSelecionada());
+                    Person.Fecha_Nacimiento = app.commonCalendar.fechaSelecionada();
+                }
+                catch(ex){}
+            }
         };
         
         var removePerson = function () {
@@ -138,7 +149,7 @@ app.Person = (function () {
             show: show,
             remove: removePerson,
             update : updatePerson,
-            edit   : editPerson,
+            edit   : editPerson,         
             foto: foto,
             activity: function () {
                 return Person;
