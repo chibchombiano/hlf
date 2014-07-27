@@ -51,7 +51,7 @@ app.Person = (function () {
                 try{
                     
                     $('#editPersonFechaNacimientoText').val(app.commonCalendar.fechaSelecionada());
-                    Person.Fecha_Nacimiento = app.commonCalendar.fechaSelecionada();
+                    Person.Fecha_Nacimiento = new Date(app.commonCalendar.fechaSelecionada());
                 }
                 catch(ex){}
             }

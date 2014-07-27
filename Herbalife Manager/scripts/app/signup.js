@@ -81,7 +81,7 @@ app.Signup = (function () {
                 try{
                     
                     $('#signUpPersonFechaNacimientoText').val(app.commonCalendar.fechaSelecionada());
-                    dataSource.BirthDate = app.commonCalendar.fechaSelecionada();
+                    dataSource.BirthDate = new Date(app.commonCalendar.fechaSelecionada());
                 }
                 catch(ex){}
             }
