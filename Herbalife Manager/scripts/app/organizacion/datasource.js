@@ -111,7 +111,8 @@ app.personasDatasource = (function () {
                     return false;
                 }
             },
-            sort: { field: 'CreatedAt', dir: 'desc' }
+            sort: { field: 'CreatedAt', dir: 'desc' },
+ 			serverFiltering: true
         });
 
         return {

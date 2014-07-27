@@ -6,6 +6,11 @@ app.organizacions = (function () {
     
     // organizacions view model
     var organizacionsViewModel = (function () {
+        
+        var init = function () {
+            app.personasDatasource.personas.filter( { field: "UserId", operator: "eq", value: appSettings.user.id });
+          	app.personasDatasource.personas.read();
+        };
 
         // Navigate to organizacionView When some organizacion is selected
         var organizacionSelected = function (e) {
@@ -75,6 +80,7 @@ app.organizacions = (function () {
         }
         
         return {
+            init: init,
             organizacions: app.personasDatasource.personas,
             organizacionSelected: organizacionSelected,
             logout: logout,

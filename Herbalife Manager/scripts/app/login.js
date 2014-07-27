@@ -76,8 +76,8 @@ app.Login = (function () {
 
                 return app.Users.load();
             })
-            .then(function () {
-
+            .then(function (e) {                
+                appSettings.user.id = app.Users.currentUser.data.Id;
                 app.mobileApp.navigate('views/organizacion/listado.html');
             })
             .then(null,

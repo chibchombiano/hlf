@@ -1,0 +1,29 @@
+<div data-role="view" id="listado-trecientos" data-layout="default" class="activities-view" data-model="app.trecientos">
+    <div data-role="header">
+        <div data-role="navbar">
+            300            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#:back">Back</a>
+            <a class="nav-button nav-button-add hide-text" data-align="right" data-role="button" href="views/trecientos/add.html">Add</a>
+        </div>
+    </div>
+
+    <ul id="trecientos-listview" data-style="inset" data-role="listview" data-template="trecientosTemplate"
+        data-bind="source: trecientos"></ul>
+    <p id="no-trecientos-span" hidden="hidden" class="no-items-msg">
+        <b>You have no posts yet.</b><br /><br />Tap on the plus sign and share what's on your mind.
+    </p>
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="trecientosTemplate">
+    <div data-role="touch" data-bind="events: { tap: trecientosSelected }" class="cf">
+        <div class="user-avatar">
+            <img data-bind="attr:{src: PictureUrl}" alt="styles/images/avatar.png" />
+        </div>
+        <div class="activity-content">
+            <h3 class="person-name">${Nombres}</h2>
+            <span class="time-span">${CreatedAtFormatted()}</span>
+            <a class="user-share-txt">${Text}</a>            
+        </div>
+    </div>
+</script>
