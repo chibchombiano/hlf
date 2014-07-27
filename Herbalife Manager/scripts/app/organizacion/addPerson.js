@@ -32,7 +32,7 @@ app.AddPerson = (function () {
             devicePlatform = device.platform;
             
             if(devicePlatform === "iOS" || devicePlatform === "android"){
-            	$('#addPersonFechaNacimientoDatePickerControl').hide(); 
+            	$('.wp8Date').hide(); 
             }
             else{
                 $('.noWp8Date').hide();
