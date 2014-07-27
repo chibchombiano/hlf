@@ -20,8 +20,8 @@
                 <input type="password" id="signupPassword" data-bind="value: Password" placeholder="Contraseña" required/>
             </li>
             <li>
-                <input type="date" id="signupBirthDatePicker" data-bind="value: BirthDate"/>
-            </li>
+                <input type="date" class="noWp8Date" id="signupBirthDatePicker" data-bind="value: BirthDate"/>
+            </li>            
             <li>
                 <input type="text" id="signupLineaAscendente" data-bind="value: LineaAscendente" placeholder="Linea Ascendente" required/>
             </li>
@@ -30,6 +30,12 @@
             </li>
         </ul>
     </form>
+    
+    <ul data-role="listview" data-style="inset">
+        <li class="wp8Date"><a data-align="right" data-role="button" data-bind="click: seleccionarFecha">Fecha nacimiento</a></li>
+        <li class="wp8Date"><input type="text" id="signUpPersonFechaNacimientoText" data-bind="value: BirthDate"/></li>
+    </ul>
+    
     <div id="signupBtnWrp" class="signup-btn-wrp disabled">
         <a class="btn btn-signup" data-role="button" data-bind="click: signup">Registrarse</a>
     </div>

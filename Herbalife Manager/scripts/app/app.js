@@ -167,6 +167,16 @@ var app = (function (win) {
             catch(ex){}
             return xhr;
         }
+    
+    var hideNotSupportedElements = function(){        
+        var devicePlatform = device.platform;        
+        if(devicePlatform === "iOS" || devicePlatform === "android"){
+            	$('.wp8Date').hide(); 
+            }
+            else{
+                $('.noWp8Date').hide();
+            }
+    }
 
     return {
         showAlert: showAlert,
@@ -178,6 +188,7 @@ var app = (function (win) {
         everlive: el,
         getYear: getYear,
         isOnline : isOnline,
-        xtmlRequest : xtmlRequest
+        xtmlRequest : xtmlRequest,
+        hideNotSupportedElements : hideNotSupportedElements
     };
 }(window));

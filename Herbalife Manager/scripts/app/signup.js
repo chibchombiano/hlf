@@ -49,6 +49,7 @@ app.Signup = (function () {
             $signupBtnWrp = $('#signupBtnWrp');
             $signupLineaAscendente = $('#signupLineaAscendente');
             
+            app.hideNotSupportedElements();
             
             validator = $signUpForm.kendoValidator({ validateOnBlur: false }).data('kendoValidator');
 
@@ -75,6 +76,15 @@ app.Signup = (function () {
                 BirthDate: new Date()
             });
             kendo.bind($('#signup-form'), dataSource, kendo.mobile.ui);
+            
+            if(app.commonCalendar !== undefined && app.commonCalendar.fechaSelecionada() !== undefined){
+                try{
+                    
+                    $('#signUpPersonFechaNacimientoText').val(app.commonCalendar.fechaSelecionada());
+                    dataSource.BirthDate = app.commonCalendar.fechaSelecionada();
+                }
+                catch(ex){}
+            }
         };
 
         // Executed after hide of the Signup view
@@ -87,13 +97,18 @@ app.Signup = (function () {
             var selected = sel.options[sel.selectedIndex].value;
             sel.style.color = (selected == 0) ? '#b6c5c6' : '#34495e';
         }
+        
+        var seleccionarFecha = function(){
+            app.mobileApp.navigate('views/common/calendar.html');
+        }
 
         return {
             init: init,
             show: show,
             hide: hide,
             onSelectChange: onSelectChange,
-            signup: signup
+            signup: signup,
+            seleccionarFecha : seleccionarFecha
         };
 
     }());

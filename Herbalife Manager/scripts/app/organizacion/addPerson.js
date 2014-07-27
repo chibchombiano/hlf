@@ -16,8 +16,7 @@ app.AddPerson = (function () {
         var $peso;
         var $personFechaNacimiento;
         var $addPersonFechaNacimientoControl;
-        var validator;
-        var devicePlatform;
+        var validator;       
         
         var init = function () {            
             validator = $('#enterStatus').kendoValidator().data('kendoValidator');            
@@ -29,14 +28,7 @@ app.AddPerson = (function () {
             $peso = $('#personPeso');
             $personFechaNacimiento = $('#personFechaNacimiento');
             $addPersonFechaNacimientoControl = $('#addPersonFechaNacimientoControl');
-            devicePlatform = device.platform;
-            
-            if(devicePlatform === "iOS" || devicePlatform === "android"){
-            	$('.wp8Date').hide(); 
-            }
-            else{
-                $('.noWp8Date').hide();
-            }
+            app.hideNotSupportedElements();
         };
         
         var show = function () {            
@@ -68,7 +60,8 @@ app.AddPerson = (function () {
                 Person.UserId = app.Users.currentUser.get('data').Id;
                 Person.Email = $email.val();
                 Person.Peso = $peso.val();
-                 if(devicePlatform === "iOS" || devicePlatform === "android"){
+                 
+                if(devicePlatform === "iOS" || devicePlatform === "android"){
                 	Person.Fecha_Nacimiento = $personFechaNacimiento.val();
                  }
                 else{
