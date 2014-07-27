@@ -9,17 +9,33 @@ app.commonCalendar = (function () {
 
     var commonCalendarViewModel = (function () {
         
+        var selectedDate;
+        
+        var fechaSelecionada = function getFechaSeleccionada(){
+            return selectedDate;
+        }
+        
         var init = function () {            
-            $("#commonCalendar").kendoCalendar();
+            $("#commonCalendar").kendoCalendar({
+                change: onChange
+            });
         };
         
         var show = function () {
         	
         };
         
+        var onChange = function(e){
+            selectedDate = kendo.toString(this.value(), 'd');  
+            app.mobileApp.navigate('#:back');
+        }
+        
+        
+        
         return {
             init: init,
-            show: show          
+            show: show,
+            fechaSelecionada : fechaSelecionada
         };
         
     }());

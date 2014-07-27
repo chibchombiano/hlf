@@ -15,7 +15,9 @@ app.AddPerson = (function () {
         var $email;
         var $peso;
         var $personFechaNacimiento;
+        var $addPersonFechaNacimientoControl;
         var validator;
+        var devicePlatform;
         
         var init = function () {            
             validator = $('#enterStatus').kendoValidator().data('kendoValidator');            
@@ -26,11 +28,28 @@ app.AddPerson = (function () {
             $email = $('#personEmail');
             $peso = $('#personPeso');
             $personFechaNacimiento = $('#personFechaNacimiento');
+            $addPersonFechaNacimientoControl = $('#addPersonFechaNacimientoControl');
+            devicePlatform = device.platform;
+            
+            if(devicePlatform === "iOS" || devicePlatform === "android"){
+            	$('#addPersonFechaNacimientoDatePickerControl').hide(); 
+            }
+            else{
+                $('.noWp8Date').hide();
+            }
         };
         
         var show = function () {            
             // Clear field on view show            
             validator.hideMessages();
+            
+            if(app.commonCalendar !== undefined && app.commonCalendar.fechaSelecionada() !== undefined){
+                try{
+                    $('#personFechaNacimientoText').val(app.commonCalendar.fechaSelecionada());
+                }
+                catch(ex){}
+            }
+            
         };
         
         var savePerson = function () {
@@ -49,7 +68,12 @@ app.AddPerson = (function () {
                 Person.UserId = app.Users.currentUser.get('data').Id;
                 Person.Email = $email.val();
                 Person.Peso = $peso.val();
-                Person.Fecha_Nacimiento = $personFechaNacimiento.val();
+                 if(devicePlatform === "iOS" || devicePlatform === "android"){
+                	Person.Fecha_Nacimiento = $personFechaNacimiento.val();
+                 }
+                else{
+                    Person.Fecha_Nacimiento = $('#personFechaNacimientoText').val();
+                }
                 
                 personas.one('sync', function () {
                     app.mobileApp.navigate('#:back');

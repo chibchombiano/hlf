@@ -22,10 +22,18 @@
                     <li><input type="text" id="personTelefonoMovil" placeholder="Telefono movil"/></li>
                     <li><input type="text" id="personEmail" placeholder="Email"/></li>
                     <li><input type="text" id="personPeso" placeholder="Peso"/></li>    
-                    <li><input type="date" id="personFechaNacimiento" data-bind="value: Fecha_Nacimiento"/></li>
-                    <li><a data-align="right" data-role="button" data-bind="click: seleccionarFecha">Fecha nacimiento</a></li>
                 </ul>
         </form>
+            
+          <ul class="noWp8Date" data-role="listview" data-style="inset">                
+              	<li><input type="date" id="personFechaNacimiento"/></li>
+          </ul>
+            
+          <ul id="addPersonFechaNacimientoControl" data-role="listview" data-style="inset">
+                <li><a data-align="right" data-role="button" data-bind="click: seleccionarFecha">Fecha nacimiento</a></li>
+                <li><input type="text" id="personFechaNacimientoText"/></li>
+          </ul>
+            
         </div>
         
     </div>

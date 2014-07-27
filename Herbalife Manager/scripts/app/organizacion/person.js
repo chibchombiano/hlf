@@ -15,12 +15,14 @@ app.Person = (function () {
             Person,
             dataUpload,
             imageData,
+            devicePlatform,
             $PersonPicture;
         
         
         var init = function () {
             $commentsContainer = $('#comments-listview');
             $PersonPicture = $('#picturePerson');
+            devicePlatform = device.platform;
         };
         
         var show = function (e) {
