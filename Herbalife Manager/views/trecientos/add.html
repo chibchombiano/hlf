@@ -1,10 +1,10 @@
-<div data-role="view" id="adicionar-persona" data-layout="default" data-transition="overlay:down" class="add-activity-view"
-    data-init="app.AddPerson.init" data-show="app.AddPerson.show" data-model="app.AddPerson">
+<div data-role="view" id="adicionar-trecientos" data-layout="default" data-transition="overlay:down" class="add-activity-view"
+    data-init="app.AddTrecientos.init" data-show="app.AddTrecientos.show" data-model="app.AddTrecientos">
     <div data-role="header">
         <div data-role="navbar">
             Activity
             <a class="nav-button nav-button-cancel" data-align="left" data-role="backbutton">Cancelar</a>
-            <a class="nav-button nav-button-post" data-align="right" data-role="button" data-bind="click: savePerson">Guardar</a>
+            <a class="nav-button nav-button-post" data-align="right" data-role="button" data-bind="click: save">Guardar</a>
         </div>
     </div>
     <div id="enterStatus" class="share-form-wrp" data-role="listview" data-style="inset">
@@ -14,27 +14,13 @@
         <h2 class="person-name" data-bind="text: me.get('data').DisplayName">Me</h2>
                 
         <div class="user-share">
-        <form id="person-form">
+        <form id="trecientos-form">
                 <ul data-role="listview" data-style="inset">
-                    <li><input type="text" id="personNombres" placeholder="Nombres" required validationMessage="El nombre es requerido!" /></li>
-                    <li><input type="text" id="personApellidos" placeholder="Apellidos" required validationMessage="El apellido es requerido!" /></li>    
-                    <li><input type="text" id="personTelefono" placeholder="Telefono"/></li>    
-                    <li><input type="text" id="personTelefonoMovil" placeholder="Telefono movil"/></li>
-                    <li><input type="text" id="personEmail" placeholder="Email"/></li>
-                    <li><input type="text" id="personPeso" placeholder="Peso"/></li>    
+                    <li><input type="text" id="trecientos_add_Nombres" placeholder="Nombres" required validationMessage="El nombre es requerido!" /></li>
+                    <li><input type="text" id="trecientos_add_Telefono" placeholder="Telefono" required validationMessage="El telefono es requerido!" /></li>
+                    
                 </ul>
         </form>
-            
-          <ul class="noWp8Date" data-role="listview" data-style="inset">                
-              	<li><input type="date" id="personFechaNacimiento"/></li>
-          </ul>
-            
-          <ul class="wp8Date" data-role="listview" data-style="inset">
-                <li><a data-align="right" data-role="button" data-bind="click: seleccionarFecha">Fecha nacimiento</a></li>
-                <li><input type="text" id="personFechaNacimientoText"/></li>
-          </ul>
-            
         </div>
-        
     </div>
 </div>

@@ -35,7 +35,7 @@ app.trecientosDatasource = (function () {
                     defaultValue: null
                 },
                 idPerson : {
-                    field: 'idPerson ',
+                    field: 'idPerson',
                     defaultValue: null
                 }
             },
