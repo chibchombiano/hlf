@@ -168,6 +168,19 @@ var app = (function (win) {
             return xhr;
         }
     
+    var xtmlRequestNotHeadeers = function (method, url){
+            var xhr = new XMLHttpRequest();
+            if ("withCredentials" in xhr){
+                xhr.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined"){
+                xhr = new XDomainRequest();
+                xhr.open(method, url);
+            } else {
+                xhr = null;
+            }
+            return xhr;
+        }
+    
     var hideNotSupportedElements = function(){        
         var devicePlatform = device.platform;        
         if(devicePlatform === "iOS" || devicePlatform === "android"){
@@ -189,6 +202,7 @@ var app = (function (win) {
         getYear: getYear,
         isOnline : isOnline,
         xtmlRequest : xtmlRequest,
+        xtmlRequestNotHeadeers : xtmlRequestNotHeadeers,
         hideNotSupportedElements : hideNotSupportedElements
     };
 }(window));

@@ -78,7 +78,8 @@ app.Login = (function () {
             })
             .then(function (e) {                
                 appSettings.user.id = app.Users.currentUser.data.Id;
-                app.mobileApp.navigate('views/organizacion/listado.html');
+                //app.mobileApp.navigate('views/organizacion/listado.html');
+                app.mobileApp.navigate('views/news/listado.html');
             })
             .then(null,
                   function (err) {

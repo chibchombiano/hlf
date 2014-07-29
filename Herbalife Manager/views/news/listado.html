@@ -1,0 +1,31 @@
+<div data-role="view" id="listado-news" data-layout="default" 
+     class="activities-view" data-model="app.news"
+     data-show="app.news.show"
+     data-hide="app.news.hide"
+     data-init="app.news.init"
+     >
+    <div data-role="header">
+        <div data-role="navbar">
+            Noticias            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#:back">Back</a>
+        </div>
+    </div>
+
+    <ul id="news-listview" data-style="inset" data-auto-bind="false" data-role="listview" data-template="newsTemplate"
+        data-bind="source: news"></ul>
+    
+    <p id="no-trecientos-span" hidden="hidden" class="no-items-msg">
+        <b>You have no posts yet.</b><br /><br />Tap on the plus sign and share what's on your mind.
+    </p>
+</div>
+
+
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="newsTemplate">
+    <div data-role="touch" data-bind="events: { tap: selected }" class="cf">
+         #= content #
+         
+         <span class="time-span">${CreatedAtFormatted()}</span>
+    </div>
+</script>
