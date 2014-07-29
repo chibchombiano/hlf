@@ -4,8 +4,7 @@ var app = app || {};
 app.organizacions = (function () {
     'use strict'
     
-    // organizacions view model
-    var organizacionsViewModel = (function () {
+    var ViewModel = (function () {
         
         var init = function () {
             app.personasDatasource.personas.filter( { field: "UserId", operator: "eq", value: appSettings.user.id });
@@ -89,6 +88,6 @@ app.organizacions = (function () {
 
     }());
 
-    return organizacionsViewModel;
+    return ViewModel;
 
 }());

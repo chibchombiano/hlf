@@ -1,13 +1,10 @@
-/**
- * AddPerson view model
- */
 
 var app = app || {};
 
 app.AddPerson = (function () {
     'use strict'
 
-    var addPersonViewModel = (function () {
+    var ViewModel = (function () {
         var $nombres;
         var $apellidos;
         var $telefono;
@@ -90,6 +87,6 @@ app.AddPerson = (function () {
         
     }());
     
-    return addPersonViewModel;
+    return ViewModel;
     
 }());

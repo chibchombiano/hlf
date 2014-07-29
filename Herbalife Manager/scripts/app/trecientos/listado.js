@@ -5,7 +5,7 @@ app.trecientos = (function () {
     'use strict'
     
     // organizacions view model
-    var trecientosViewModel = (function () {
+    var ViewModel = (function () {
         
         var show = function () {
             app.trecientosDatasource.trecientos.filter( { field: "idPerson", operator: "eq", value: appSettings.person.id });
@@ -36,6 +36,6 @@ app.trecientos = (function () {
 
     }());
 
-    return trecientosViewModel;
+    return ViewModel;
 
 }());
