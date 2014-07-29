@@ -30,7 +30,9 @@ app.AddTrecientos = (function () {
                 item.Nombres = $('#trecientos_add_Nombres').val();
                 item.Telefono = $('#trecientos_add_Telefono').val();
                 item.idPerson = appSettings.person.id;
-                
+                item.Parentesco = $('#trecientos_add_Parentesco').val();
+                item.Email = $('#trecientos_add_Email').val();
+                item.Comentarios = $('#trecientos_add_Comentarios').val();
                  
                 trecientos.one('sync', function () {
                     app.mobileApp.navigate('#:back');

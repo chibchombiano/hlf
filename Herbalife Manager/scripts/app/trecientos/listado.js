@@ -17,8 +17,8 @@ app.trecientos = (function () {
         }
 
         // Navigate to organizacionView When some organizacion is selected
-        var trecientosSelected = function (e) {
-            app.mobileApp.navigate('views/organizacion/person.html?uid=' + e.data.uid+ '&id=' + e.data.id);
+        var selected = function (e) {
+            app.mobileApp.navigate('views/trecientos/view.html?uid=' + e.data.uid+ '&id=' + e.data.id);
         };
 
         // Navigate to app home
@@ -31,7 +31,7 @@ app.trecientos = (function () {
             hide : hide,
             show : show,
             trecientos: app.trecientosDatasource.trecientos,
-            trecientosSelected: trecientosSelected
+            selected: selected
         };
 
     }());

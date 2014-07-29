@@ -8,17 +8,19 @@
         </div>
     </div>
     <div id="enterStatus" class="share-form-wrp" data-role="listview" data-style="inset">
-        <div class="user-avatar">
-            <img data-bind="attr:{src: me.get('data').PictureUrl}" alt="styles/images/avatar.png" />
-        </div>
-        <h2 class="person-name" data-bind="text: me.get('data').DisplayName">Me</h2>
+       
+        <h3>
+            Nuevo contacto
+        </h3>
                 
         <div class="user-share">
         <form id="trecientos-form">
                 <ul data-role="listview" data-style="inset">
                     <li><input type="text" id="trecientos_add_Nombres" placeholder="Nombres" required validationMessage="El nombre es requerido!" /></li>
                     <li><input type="text" id="trecientos_add_Telefono" placeholder="Telefono" required validationMessage="El telefono es requerido!" /></li>
-                    
+                    <li><input type="text" id="trecientos_add_Parentesco" placeholder="Parentesco"/></li>
+                    <li><input type="text" id="trecientos_add_Email" placeholder="Email"/></li>
+                    <li><input type="text" id="trecientos_add_Comentarios" placeholder="Comentarios"/></li>
                 </ul>
         </form>
         </div>

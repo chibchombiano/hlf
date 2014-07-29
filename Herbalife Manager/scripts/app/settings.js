@@ -47,5 +47,6 @@ var appSettings = {
     },
     person : {
         id : '',
+        uid: ''
     }
 };
