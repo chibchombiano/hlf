@@ -190,6 +190,19 @@ var app = (function (win) {
                 $('.noWp8Date').hide();
             }
     }
+    
+    var getImagesFromHtlm = function(str){
+        var div = document.createElement('div');
+        div.innerHTML = str;
+        var firstImage = div.getElementsByTagName('img')[0]
+        var imgSrc = firstImage ? firstImage.src : "";
+        // or, if you want the unresolved src, as it appears in the original HTML:
+        // var rawImgSrc = firstImage ? firstImage.getAttribute("src") : "";
+        
+        return imgSrc;
+        
+        
+    }
 
     return {
         showAlert: showAlert,
@@ -203,6 +216,7 @@ var app = (function (win) {
         isOnline : isOnline,
         xtmlRequest : xtmlRequest,
         xtmlRequestNotHeadeers : xtmlRequestNotHeadeers,
-        hideNotSupportedElements : hideNotSupportedElements
+        hideNotSupportedElements : hideNotSupportedElements,
+        getImagesFromHtlm : getImagesFromHtlm
     };
 }(window));

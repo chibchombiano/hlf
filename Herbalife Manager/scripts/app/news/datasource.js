@@ -1,6 +1,8 @@
 var app = app || {};
 
 app.newsDatasource = (function () {
+    
+    	var dataShowArray = new Array();
 
         var Model = {
 
@@ -16,7 +18,11 @@ app.newsDatasource = (function () {
                 },
                 title: {
                     field: 'title',
-                    defaultValue: new Date()
+                    defaultValue: ''
+                },
+                imagen: {
+                    field: 'imagen',
+                    defaultValue: ''
                 }
             },
              CreatedAtFormatted: function () {
@@ -47,14 +53,28 @@ app.newsDatasource = (function () {
         };
     
     function  read(options) {
-            var deferred = Q.defer();
-            
+        var deferred = Q.defer();            
         
          var request = app.xtmlRequestNotHeadeers("GET", "https://www.facebook.com/feeds/page.php?format=json&id=226425227388491");
             if (request){
                 request.onload = function(){
-                    var data = JSON.parse(request.response).entries;
-					deferred.resolve(data);
+                    var data = JSON.parse(request.response).entries;                   
+                    
+                    for(var x in data){
+                        
+                        if(data[x].title.trim().length > 0){
+                    		var images =  app.getImagesFromHtlm(data[x].content);
+                        
+                            if(images !== null && images.length > 0){
+                                dataShowArray.push({imagen : app.getImagesFromHtlm(data[x].content), content : data[x].content, title : data[x].title, published : data[x].published });
+                            }
+                            else{
+                                dataShowArray.push({imagen : 'styles/images/avatar.png', content : data[x].content, title : data[x].title, published : data[x].published });
+                            }
+                        }
+                    }
+                    
+					deferred.resolve(dataShowArray);
                 };
                 request.send();
             }
