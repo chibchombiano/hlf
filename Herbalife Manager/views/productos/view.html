@@ -1,0 +1,43 @@
+<div data-role="view" id="productos-seleccionado" data-layout="default" class="activity-view" 
+     data-init="app.viewProductos.init" data-show="app.viewProductos.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            Detalle
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+
+    
+    <div class="user-status-wrp cf" data-role="listview" data-style="inset">
+        <h5 class="person-name" data-bind="text: Nombre"></h5>
+        
+        <img data-bind="attr:{src: PictureUrl()}" alt="styles/images/avatar.png" />
+        
+        <h4>
+            Beneficios
+        </h4>
+        
+        <ul id="productos-Beneficios-listview" data-style="inset" data-role="listview" data-template="productosViewTemplate"
+    	data-bind="source: Beneficios"></ul>
+    
+		<div id="productos-sabores">
+    	
+        <h4>
+            Sabores
+        </h4>
+        
+        
+        <ul id="productos-listview-Sabores" data-style="inset"></ul>
+    	</div> 
+        
+    </div>
+    
+    	 
+    
+    <div data-role="footer">        
+    </div>
+</div>
+
+<script type="text/x-kendo-template" id="productosViewTemplate">
+	#= data #
+</script>

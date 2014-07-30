@@ -1,0 +1,30 @@
+<div data-role="view" id="listado-productos" data-layout="default" 
+     class="activities-view" 
+     data-model="app.productos"
+     data-init="app.productos.init"    
+     >
+    <div data-role="header">
+        <div data-role="navbar">
+            Productos
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#:back">Back</a>
+        </div>
+    </div>
+
+    <ul id="productos-listview" data-style="inset" data-auto-bind="false" data-role="listview" data-template="productosTemplate"
+        data-bind="source: productos"></ul>
+    <p id="no-activities-span" hidden="hidden" class="no-items-msg">
+        <b>You have no posts yet.</b><br /><br />Tap on the plus sign and share what's on your mind.
+    </p>
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="productosTemplate">
+    <div data-role="touch" data-bind="events: { tap: selected }" class="cf">
+        <div class="user-avatar">
+            <img data-bind="attr:{src: PictureUrl}" alt="styles/images/avatar.png" />
+        </div>
+        <div class="activity-content">
+            <h4 class="person-name">${Nombre}</h4>            
+        </div>
+    </div>
+</script>
