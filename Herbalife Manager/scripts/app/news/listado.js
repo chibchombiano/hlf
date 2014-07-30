@@ -21,7 +21,7 @@ app.news = (function () {
 
         // Navigate to organizacionView When some organizacion is selected
         var selected = function (e) {
-            //app.mobileApp.navigate('views/trecientos/view.html?uid=' + e.data.uid+ '&id=' + e.data.id);
+            app.mobileApp.navigate('views/news/view.html?uid=' + e.data.uid+ '&id=' + e.data.id);
         };
 
         // Navigate to app home

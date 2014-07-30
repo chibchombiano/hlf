@@ -1,0 +1,40 @@
+<div data-role="view" id="trecientos-seleccionado" data-layout="default" class="activity-view" 
+     data-init="app.viewTrecientos.init" data-show="app.viewTrecientos.show">
+    <div data-role="header">
+        <div data-role="navbar">
+            Detalle 300
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton">Back</a>
+        </div>
+    </div>
+
+    <div class="user-status-wrp cf" data-role="listview" data-style="inset">
+        <ul data-role="listview" data-style="inset">
+            
+            		<li class="oauth cf">
+                       
+                        <span class="oauth-item" data-role="touch">
+                            <a data-role="button" data-click="app.viewTrecientos.remove">eliminar</a>
+                        </span>
+                        
+                	</li>
+            
+                	<li><span>Nombres</span></li>
+                    <li><span data-bind='text: Nombres'/></li>
+                
+            		<li><span>Telefono</span></li>
+                    <li><span data-bind='text: Telefono'/></li>
+            
+            		<li><span>Email</span></li>
+                    <li><span data-bind='text: Email'/></li>
+            
+            		<li><span>Parentesco</span></li>
+                    <li><span data-bind='text: Parentesco'/></li>
+            
+            		<li><span>Comentarios</span></li>
+                    <li><span data-bind='text: Comentarios'/></li>
+             </ul>
+    </div>
+    
+    <div data-role="footer">        
+    </div>
+</div>
