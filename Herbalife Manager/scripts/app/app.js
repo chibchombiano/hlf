@@ -181,6 +181,23 @@ var app = (function (win) {
             return xhr;
         }
     
+    	var xhrHlf = new XMLHttpRequest();
+    
+    	var xtmlRequestHlf = function (method, url){            
+            if ("withCredentials" in xhrHlf){
+                xhrHlf.open(method, url, true);
+            } else if (typeof XDomainRequest != "undefined"){
+                xhrHlf = new XDomainRequest();
+                xhrHlf.open(method, url);
+            } else {
+                xhrHlf = null;
+            }
+            
+            return xhrHlf;
+        }
+    
+    
+    
     var hideNotSupportedElements = function(){        
         var devicePlatform = device.platform;        
         if(devicePlatform === "iOS" || devicePlatform === "android"){
@@ -217,6 +234,7 @@ var app = (function (win) {
         xtmlRequest : xtmlRequest,
         xtmlRequestNotHeadeers : xtmlRequestNotHeadeers,
         hideNotSupportedElements : hideNotSupportedElements,
-        getImagesFromHtlm : getImagesFromHtlm
+        getImagesFromHtlm : getImagesFromHtlm,
+        xtmlRequestHlf : xtmlRequestHlf
     };
 }(window));

@@ -51,6 +51,24 @@ app.Login = (function () {
         };
 
         var show = function () {
+            
+            var formData = new FormData();
+            formData.append("userName", "L1171256");
+            formData.append("password", "5069");            
+            
+            var request = app.xtmlRequestHlf("POST", "https://co.myherbalife.com/Authentication/Logon");
+            if (request){
+                request.onload = function(){
+                   getValues();
+                };
+                request.onerror = function()
+                {
+                    alert(request.response);
+                }
+                request.send(formData);
+            }
+            
+            
             $loginUsername.val('');
             $loginPassword.val('');
             
@@ -59,6 +77,21 @@ app.Login = (function () {
             
            
         };
+        
+        function getValues(){
+			var request = app.xtmlRequestHlf("GET", "https://co.myherbalife.com/api/Volume/");
+            if (request){
+                request.onload = function(){
+                   alert(request.response);					
+                    $('#consoleResponse').val(request.response);
+                };
+                request.onerror = function()
+                {
+                    alert(request.response);
+                }
+                request.send();
+            }
+        }
 
         // Authenticate to use Backend Services as a particular user
         var login = function () {
