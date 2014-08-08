@@ -60,6 +60,9 @@ app.Login = (function () {
             if (request){
                 request.onload = function(){
                    getValues();
+                   app,ajaxCall('https://co.myherbalife.com/account/volume.aspx','POST',[],'').then( function(){
+                        alert('');
+                   });
                 };
                 request.onerror = function()
                 {

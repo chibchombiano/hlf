@@ -217,8 +217,45 @@ var app = (function (win) {
         // var rawImgSrc = firstImage ? firstImage.getAttribute("src") : "";
         
         return imgSrc;
+    }
+    
+    var ajaxCall = function(url, metodo,data,tipo){
+        var deferred = Q.defer();
         
+        $.ajax({
+          url: url,
+          type: metodo,
+          data: data,
+          success: function(data){ 
+              deferred.resolve(datay);
+          },
+          error: function(error){
+              deferred.reject(error);
+          }
+        });
         
+        return deferred.promise;
+    }
+    
+    var obtenerDatosHtml = function(str){
+        
+        var div = document.createElement('div');
+        div.innerHTML = str;
+        
+        var listado = new Array();
+        var tabla = $(div).find('.rgDetailTable').first().find('td');
+        var objeto = new Object();
+        
+        for(var i in tabla){
+           if(i % 8 == 0){
+             listado.push({'Mes' : $( tabla[i] ).text().trim()});
+           }
+           else{
+            if((i % 8).trim() !== "NaN"){
+              console.log( i % 8 );
+            }   	
+          }
+        }
     }
 
     return {
@@ -235,6 +272,8 @@ var app = (function (win) {
         xtmlRequestNotHeadeers : xtmlRequestNotHeadeers,
         hideNotSupportedElements : hideNotSupportedElements,
         getImagesFromHtlm : getImagesFromHtlm,
-        xtmlRequestHlf : xtmlRequestHlf
+        xtmlRequestHlf : xtmlRequestHlf,
+        obtenerDatosHtml : obtenerDatosHtml,
+        ajaxCall : ajaxCall
     };
 }(window));
