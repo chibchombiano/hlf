@@ -1,0 +1,56 @@
+<div data-role="view" id="listado-volumen" data-layout="default" 
+     class="activities-view" 
+     data-show="app.volumen.show"
+     data-hide="app.volumen.hide"
+     data-init="app.volumen.init"
+     >
+    <div data-role="header">
+        <div data-role="navbar">
+            Volumen            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#:back">Back</a>
+        </div>
+    </div>
+
+    <ul id="volumen-listview" data-style="inset"></ul>    
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="volumenTemplate">	
+    <h3 class="item-title">${mes}</h3>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda"> Volumen comprado personalmente</span>
+        <span class="texto-derecha">${volumen_Comp_Per}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Volumen bajo lineas</span>
+        <span class="texto-derecha">${volumen_personal}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Volumen personal</span>
+        <span class="texto-derecha">${volumen_personal}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Volumen grupal</span>
+        <span class="texto-derecha">${volumen_grupal}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Personal + Grupal </span>
+        <span class="texto-derecha">${suma_personal_grupal}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Organizacion</span>
+        <span class="texto-derecha">${organizacion}</span>
+    </div>
+    
+    <div data-role="touch" class="cf">
+        <span class="texto-izquierda">Regalias</span>
+        <span class="texto-derecha">${regalias}</span>
+    </div>
+    
+</script>

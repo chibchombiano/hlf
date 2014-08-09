@@ -427,6 +427,16 @@
     width: 50px;
 }
 
+#friendsApp .texto-izquierda {
+    float: left;
+    width: 230px;
+}
+
+#friendsApp .texto-derecha {
+    float: right;
+    width: 80px;
+}
+
 #friendsApp .user-avatar img {
     width: 50px;
     height: 50px;

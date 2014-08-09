@@ -227,7 +227,7 @@ var app = (function (win) {
           type: metodo,
           data: data,
           success: function(data){ 
-              deferred.resolve(datay);
+              deferred.resolve(data);
           },
           error: function(error){
               deferred.reject(error);
@@ -248,16 +248,35 @@ var app = (function (win) {
         
         for(var i in tabla){
            if(i % 8 == 0){
-             listado.push({'Mes' : $( tabla[i] ).text().trim()});
+             objeto['Mes'] = $( tabla[i] ).text().trim();
+             objeto = new Object();      
            }
            else{
-            if((i % 8).trim() !== "NaN"){
-              console.log( i % 8 );
+            var numero = (i % 8).toString().trim();
+            
+             if(numero !== "NaN"){
+                   objeto[convertirNumerosNombres(numero)] = $( tabla[i] ).text().trim();
+            
+                if(numero == 7){
+                    listado.push(objeto);
+                  }
             }   	
           }
-        }
+       }
+        
+        return listado;
     }
-
+    
+    function convertirNumerosNombres(numero){
+        if(numero === "1"){return "Volumen_Comp_Pers";}
+        else if(numero === "2"){return "Volumen_Personal";}
+        else if(numero === "3"){return "Volumen_Grupal";}
+        else if(numero === "4"){return "Volumen_Personal_Mas_Grupal";}
+        else if(numero === "5"){return "Volumen_Organizacion";}
+        else if(numero === "6"){return "Puntos_Regalias";}
+        else {return "Otro";}
+    }
+    
     return {
         showAlert: showAlert,
         showError: showError,
