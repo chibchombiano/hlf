@@ -1,0 +1,34 @@
+<div data-role="view" id="listado-volumen" data-layout="default" 
+     class="activities-view" 
+     data-show="app.price.show"
+     data-hide="app.price.hide"
+     data-init="app.price.init"
+     >
+    <div data-role="header">
+        <div data-role="navbar">
+            Precios            
+            <a class="nav-button nav-button-back hide-text" data-align="left" data-role="backbutton" href="#:back">Back</a>
+        </div>
+    </div>
+
+    <ul id="price-listview" data-style="inset"></ul>    
+</div>
+
+<!-- Activities ListView Template -->
+<script type="text/x-kendo-template" id="priceTemplate">	
+    <h6>SKU</h6>
+    <h5 class="item-title">${sku}</h5>
+    
+    <h6>Nombre</h6>
+    <h5 class="item-title">${nombre}</h5>    
+    
+    <h6>Precio de venta</h6>
+    <h5 class="item-title">${precioVenta}</h5>
+    
+    <h6>Puntos de volumen</h6>
+    <h5 class="item-title">${puntosVolumen}</h5>
+    
+    <h6>Base de ganancia</h6>
+    <h5 class="item-title">${baseGanancia}</h5>
+    <br>
+</script>
